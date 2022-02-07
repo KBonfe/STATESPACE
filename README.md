@@ -26,6 +26,8 @@ proc print data=combine;
 quit;
 proc print data=US;
 quit;
+
+
 **********************************************US***********************************
 ******************;
 title US;
@@ -54,6 +56,7 @@ run;quit;
 proc univariate data=US;
 qqplot count/ normal(mu=est sigma=est color=red l=2);
 ods html close;
+
 
 *************************************All Sites
 Combined******************************************;
@@ -86,6 +89,8 @@ plot count*year for1*year /overlay;
 by state;
 run;quit;
 ods html close;
+
+
 *****************************Brain and other Nervous
 System******************************************;
 title Brain and other Nervous System;
@@ -103,6 +108,8 @@ proc gplot data=Brain;
 plot count*year;
 by state;
 run;quit;
+
+
 *STATESPACE*;
 proc statespace data=Brain out=forecastBrain lead=5;
 var count;
@@ -116,6 +123,8 @@ plot count*year for1*year /overlay;
 by state;
 run;quit;
 ods html close;
+
+
 ****************************Breast*******************************************;
 title Individual States;
 title2 Breast Cancer;
@@ -133,6 +142,8 @@ proc gplot data=Breast;
 plot count*year;
 by state;
 run;quit;
+
+
 *STATESPACE*;
 title3 STATESPACE;
 proc statespace data=Breast out=forecastBreast lead=5;
@@ -165,6 +176,8 @@ proc gplot data=ColonRectum;
 plot count*year;
 by state;
 run;quit;
+
+
 *STATESPACE*;
 proc statespace data=ColonRectum out=forecastColonRectum lead=5;
 var count;
